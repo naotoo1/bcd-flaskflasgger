@@ -1,6 +1,6 @@
 FROM python:3.9.1
-COPY . /usr/app/
-EXPOSE 5000
-WORKDIR /usr/app/
-RUN pip install -r requirements.txt
-CMD python flask_app.py
+WORKDIR app/
+COPY requirements.txt requirements.txt
+RUN pip3 install -r requirements.txt
+COPY . .
+CMD [ "python", "-m" , "flask", "run", "--host=0.0.0.0"]
