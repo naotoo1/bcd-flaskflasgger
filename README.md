@@ -1,5 +1,5 @@
-# bcd-FlaskSwagger API
-An end-to-end implementation of Breast Cancer Detection using [prosemble ML package](https://github.com/naotoo1/prosemble) within the Flask framework integrated with swagger API
+# bcd-Flask and Flasgger
+An end-to-end implementation of Breast Cancer Detection using [prosemble ML package](https://github.com/naotoo1/prosemble) within the Flask framework and Flasgger
 
 ## How to use
 To diagnose breast cancer disease and return the confidence of the diagnosis,
