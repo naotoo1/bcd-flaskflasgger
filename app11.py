@@ -110,54 +110,8 @@ def predict_BreastCancer(radius_mean, radius_texture, method):
             return f"Malignant with {round(hard_prob[0] * 100, 2)}% confidence"
 
 
-def predict_file(df, method):
-    """
-    Diagnose breast cancer using data_in_file.
-    ---
-    parameters:
-      - name: file
-        in: formData
-        type: file
-        required: true
-      - name: Method
-        in: query
-        type: string
-        required: true
 
-    responses:
-        200:
-            description: The output values
-    """
-    # df = pd.read_csv(request.files.get('file'))
-    # Method = request.args.get('Method')
-    # print((df.head()))
-
-    # prediction using the svc,knn and dtc models
-    pred1 = svc.predict(df)
-    pred2 = knn.predict(df)
-    pred3 = dtc.predict(df)
-
-    # confidence of prediction using the svc,knn and dtc models respectively
-    sec1 = get_posterior(x=df, y_=pred1, z_=svc)
-    sec2 = get_posterior(x=df, y_=pred2, z_=knn)
-    sec3 = get_posterior(x=df, y_=pred3, z_=dtc)
-    all_pred = [pred1, pred2, pred3]
-    all_sec = [sec1, sec2, sec3]
-
-    # prediction from the ensemble using hard voting
-    prediction1 = ensemble.pred_prob([[df]], all_pred)
-    # prediction from the ensemble using soft voting
-    prediction2 = ensemble.pred_sprob([[df]], all_sec)
-    # confidence of the prediction using hard voting
-    hard_prob = ensemble.prob([[df]], all_pred)
-    # confidence of the prediction using soft voting
-    soft_prob = ensemble.sprob([[df]], all_sec)
-    if method == 'soft':
-        return result(x=prediction2, y=0, z=soft_prob)
-    if method == 'hard':
-        return result(x=prediction1, y=0, z=hard_prob)
-
-
+        
 def main():
     st.title(" Breast Cancer Diagnostic Tool")
     html_temp = """
