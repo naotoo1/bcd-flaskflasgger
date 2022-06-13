@@ -1,6 +1,6 @@
 # bcd-Flask and Flasgger
 An end-to-end implementation of Breast Cancer Detection using [prosemble ML package](https://github.com/naotoo1/prosemble) within the Flask framework and Flasgger
-dockerized for deployment.
+dockerized for deployment and also within streamlit ML app.
 
 ## How to use
 To diagnose breast cancer disease and return the confidence of the diagnosis,
