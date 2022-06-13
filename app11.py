@@ -109,8 +109,6 @@ def predict_BreastCancer(radius_mean, radius_texture, method):
         else:
             return f"Malignant with {round(hard_prob[0] * 100, 2)}% confidence"
 
-
-
         
 def main():
     st.title(" Breast Cancer Diagnostic Tool")
